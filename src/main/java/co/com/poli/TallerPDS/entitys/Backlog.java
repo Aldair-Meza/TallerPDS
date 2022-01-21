@@ -18,17 +18,15 @@ import java.util.Objects;
 public class Backlog extends EntityBase{
     @NotEmpty(message = "No debe ser vacio")
     @Column(name = "projectIdentifier")
-    protected String projectIdentifier;
+    private String projectIdentifier;
 
-    @JsonBackReference
-    @OneToOne(cascade = CascadeType.ALL)
-    @NotEmpty(message = "El campo no puede estar vacio")
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
-    protected Project project;
+    private Project project;
 
     @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    protected List<ProjectTask> projectTask;
+    private List<ProjectTask> projectTask;
 
     @Override
     public boolean equals(Object o) {

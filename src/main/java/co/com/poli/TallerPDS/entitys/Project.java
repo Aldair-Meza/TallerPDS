@@ -28,15 +28,15 @@ public class Project extends EntityBase {
     private String description;
 
     @Column(name = "startDate")
-    protected Date startDate;
+    private Date startDate;
 
     @Column(name = "endDate")
-    protected Date endDate;
+    private Date endDate;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "backlog_id")
     @JsonIgnoreProperties(value = { "project" }, allowSetters = true)
-    protected Backlog backlog;
+    private Backlog backlog;
 
     @Override
     public boolean equals(Object o) {
