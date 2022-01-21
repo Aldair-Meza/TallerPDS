@@ -6,10 +6,7 @@ import co.com.poli.TallerPDS.model.Response;
 import co.com.poli.TallerPDS.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -43,5 +40,10 @@ public class ProjectController {
                     return error;
                 }).collect(Collectors.toList());
         return errors;
+    }
+
+    @GetMapping
+    public List<Project> findAll(){
+        return service.findAll();
     }
 }

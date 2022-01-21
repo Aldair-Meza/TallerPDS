@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/projectTask")
+@RequestMapping("/task")
 @RequiredArgsConstructor
 public class ProjectTaskController {
 
@@ -43,5 +43,10 @@ public class ProjectTaskController {
                     return error;
                 }).collect(Collectors.toList());
         return errors;
+    }
+
+    @GetMapping("/project/{projectIdentifier}")
+    public List<ProjectTask> findAllByProjectIdentifier(@PathVariable("projectIdentifier") String id){
+        return service.findAllByProjectIdentifier(id);
     }
 }
