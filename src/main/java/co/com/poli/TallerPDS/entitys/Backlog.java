@@ -14,8 +14,8 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@Table(name = "project")
-public class Backlog {
+@Table(name = "backlog")
+public class Backlog extends EntityBase{
     @NotEmpty(message = "No debe ser vacio")
     @Column(name = "projectIdentifier")
     protected String projectIdentifier;
